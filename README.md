@@ -28,6 +28,7 @@ rm -Rf .git/modules/vim/pack/xvrqt/start/<name>
 ```bash
 git submodule update --remote --merge
 ```
+
 -----
 
 Don't forget to follow all these up with a:
