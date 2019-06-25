@@ -4,3 +4,21 @@
 [submodule "pack/xvrqt/start/goyo"]
 	path = pack/xvrqt/start/goyo
 	url = https://github.com/junegunn/goyo.vim.git
+[submodule "pack/xvrqt/start/syntastic"]
+	path = pack/xvrqt/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "pack/xvrqt/start/rust"]
+	path = pack/xvrqt/start/rust
+	url = https://github.com/rust-lang/rust.vim.git
+[submodule "pack/xvrqt/start/vim-airline"]
+	path = pack/xvrqt/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "pack/xvrqt/start/vim-fugitive"]
+	path = pack/xvrqt/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "pack/xvrqt/start/vim-commentary"]
+	path = pack/xvrqt/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "pack/xvrqt/start/supertab"]
+	path = pack/xvrqt/start/supertab
+	url = https://github.com/ervandew/supertab.git
