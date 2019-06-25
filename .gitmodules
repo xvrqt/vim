@@ -1,0 +1,6 @@
+[submodule "pack/xvrqt/start/nerdtree"]
+	path = pack/xvrqt/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "pack/xvrqt/start/goyo"]
+	path = pack/xvrqt/start/goyo
+	url = https://github.com/junegunn/goyo.vim.git
