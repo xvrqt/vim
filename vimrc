@@ -7,9 +7,9 @@ syntax enable		    " Syntax highlighting
 " Spaces and Tabs
 set expandtab		  " Tabs are spaces. <Tab> == Insert 4 space characters
 
-set tabstop=2 		" Number of visual spaces per tab
-set shiftwidth=2  " Number of spaces to shift using >
-set softtabstop=2	" Number of spaces in tab when editing
+set tabstop=4 		" Number of visual spaces per tab
+set shiftwidth=4  " Number of spaces to shift using >
+set softtabstop=4	" Number of spaces in tab when editing
 
 " UI Config
 set number 		      " Show line numbers in left hand margin
@@ -29,7 +29,7 @@ set foldenable          " Enable folding
 set foldmethod=syntax   " fold based on indent level
 
 set foldnestmax=10      " 10 nested fold max. 
-set foldlevelstart=10   " Most folds opened by default
+set foldlevelstart=5    " Most folds opened by default
 " <space> opens/closes folds
 nnoremap <space> za
 
