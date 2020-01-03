@@ -1,7 +1,7 @@
 # Overview
 This is my personal Vim settings and plugins that I use. I created this repo so that I would have an easy way to recreate my working environment anywhere. If you're new to Vim, the vimrc is well documented and maybe a good place for you to get started. If you have any suggestions to improve this file, please open and issue or a pull request, I'm always open to learning more about the world's best text editor.
 
-![Example of the Vim environment created by this repo](https://xvrqt.sfo2.digitaloceanspaces.com/image-cache/vim-example.png)
+![Example of the Vim environment created by this repo](https://github.com/xvrqt/vim/blob/master/imgs/vim-example.png?raw=true)
 
 # Quickstart
 Clone this repo and then symlink it to ~/.vim (or just clone it to ~/.vim).
