@@ -1,39 +1,92 @@
-" Amy Jie - 01/31/2016
+" army jie - 05/25/2020
 
-" Colors
-colorscheme monokai	" The best colorscheme. Looks like Sublime Text's
-syntax enable		    " Syntax highlighting
+" colors
+syntax enable       " syntax highlighting
+colorscheme monokai " the best colorscheme. looks like sublime text's
 
-" Spaces and Tabs
-set expandtab		  " Tabs are spaces. <Tab> == Insert 4 space characters
+" leader shortcuts
+let mapleader=" "   " leader is space
 
-set tabstop=4 		" Number of visual spaces per tab
-set shiftwidth=4  " Number of spaces to shift using >
-set softtabstop=4	" Number of spaces in tab when editing
+" file settings
+set encoding=utf-8
+set hidden                      "files are hidden, not closed
+set backspace=indent,eol,start  "backspaces across lines
+set autoread                    "automatically reads outside changes
+
+" spaces and tabs
+set expandtab       " tabs are spaces. <tab> == insert 4 space characters
+set cindent         " automatically lines up indents across lines
+filetype indent on  " turns on filetype detection and allows loading of language specific indentation files
+
+set tabstop=4      " number of visual spaces per tab
+set shiftwidth=4   " number of spaces to shift using >
+set softtabstop=4  " number of spaces in tab when editing
 
 " UI Config
-set number 		      " Show line numbers in left hand margin
-set showcmd         " Show the last command entered in the very bottom right of Vim
-set showmatch       " Highlight matching [{( )}]
-set cursorline      " Highlight the current line
-filetype indent on  " Turns on filetype detection and allows loading of language specific indentation files
+set showcmd         " show the last command entered in the very bottom right of vim
+set showmatch       " highlight matching [{( )}]
+set cursorline      " highlight the current line
+set ttyfast         " allows for faster scrolling. maybe disable if using a remote term
+set laststatus=2    " displays file info at bottom
+set scrolloff=5     " at least five lines after cursor. cursor can't get to buttom
 
-" Searching
-set hlsearch        " Highlight search matches
-set incsearch       " Search as characters are entered
-" Turn off search highlighting with ,<space>
-nnoremap <leader><space> :nohlsearch<CR>
+" Highlights column 80
+set colorcolumn=80
+" Highlight characters past column 80
+:au bufwinenter * let w:m2=matchadd('errormsg', '\%>80v.\+', -1)
 
-" Folding
-set foldenable          " Enable folding
+" line numbers
+set number          " show line numbers in left hand margin
+set relativenumber  " shows the line number
+
+" toggle for relative numbers
+function! numbertoggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+" line number toggle shortcut
+nnoremap <leader>l :call numbertoggle()<cr>
+
+" vim command tab completion
+set wildmenu
+set wildmode=list:longest
+
+" faster window switching
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" quickly open up .vimrc by pressing leader + rc
+nnoremap <leader>rc <c-w>vcc-w>l :e $myvimrc<cr>
+" opens a new vertical window
+nnoremap <leader>w <c-w>v<c-w>l
+
+set visualbell "instead of beeping diplays
+
+" searching
+set hlsearch        " highlight search matches
+set incsearch       " search as characters are entered
+set ignorecase      " if all lowercase, case insensitive
+set smartcase       " if at least one uppercase letter, case sensitive
+set gdefault        " defaults to global find/replace
+
+" turn off search highlighting 
+nnoremap <leader><n> :nohlsearch<cr>
+
+" folding
+set foldenable          " enable folding
 set foldmethod=syntax   " fold based on indent level
 
 set foldnestmax=10      " 10 nested fold max. 
-set foldlevelstart=5    " Most folds opened by default
-" <space> opens/closes folds
-nnoremap <space> za
+set foldlevelstart=5    " most folds opened by default
+" ctrl + space opens/closes folds
+nnoremap <c-space> za
 
-" Movement
+" movement
 
 " move vertically by visual line
 nnoremap j gj
@@ -42,55 +95,59 @@ nnoremap k gk
 " Center the current line vertically
 nnoremap <space><space> zz
 
-" highlights last inserted text
-nnoremap gV `[v`]
+" Highlights last inserted text
+nnoremap gv `[v`]
 
-" Highlights column 80
-set colorcolumn=80
 
-" Leader Shortcuts
-let mapleader=","       " leader is comma
-" el classico
+" El classico
 inoremap jk <esc>
+inoremap jj <esc>
+inoremap jk <esc>
+inoremap kj <esc>
+inoremap kk <esc>
 
-" Saves a vim session (reopen with vim -S)
-nnoremap <leader>s :mksession<CR>
+" Semicolon can be used as a colon
+nnoremap ; :
+
+" Saves anytime focus is lost from the vim file
+au focuslost * :w
+
+" Tabs are allowed if makefile
+autocmd filetype make setlocal noexpandtab shiftwidth=8 softtabstop=0 
+" saves a vim session (reopen with vim -s)
+nnoremap <leader>s :mksession<cr>
 
 " Spellcheck
 set spell spelllang=en_us
 " Fix spellings
 nnoremap <leader>f 1z=
-" Disable spelling
-nnoremap <leader>s :set spell!
-
-" Custom Functions
-" Highlight characters past column 80
-:au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+" Toggle spelling
+nnoremap <leader>s :set spell!<cr>
 
 " Return to last line edited upon opening (automatic '")
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$")
       \| exe "normal! g'\" zz" | endif
 endif
 
 " Distraction free writing toggle
-nnoremap <S-d> :Goyo<CR>
+nnoremap <s-d> :goyo<cr>
 
-" Syntastic Settings
+" syntastic settings
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{syntasticstatuslineflag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" NERDTree
-" Open NERDTree on empty file
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Toggle NERDTree with Ctrl+n
-map <C-n> :NERDTreeToggle<CR>
-" Close Vim if NERDTree is the only window left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Nerdtree
+" Open nerdtree on empty file
+autocmd stdinreadpre * let s:std_in=1
+autocmd vimenter * if argc() == 0 && !exists("s:std_in") | nerdtree | endif
+" Toggle nerdtree with ctrl+n
+map <c-n> :nerdtreetoggle<cr>
+" Close vim if nerdtree is the only window left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:nerdtree") && b:nerdtree.istabtree()) | q | endif
+
