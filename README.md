@@ -9,6 +9,19 @@ Clone this repo and then symlink it to ~/.vim (or just clone it to ~/.vim).
 git clone --recurse-submodules -j8 https://git.xvrqt.com/amy/vim.git ~/.vim
 ```
 
+# Plugins
+This will also install several plugins for Vim
+
+- [Goyo](https://github.com/junegunn/goyo.vim) - Distraction free writing
+- [NerdTree](https://github.com/preservim/nerdtree) - File browser
+- [Rust](https://github.com/rust-lang/rust.vim) - Rust syntax checking for Syntastic
+- [SuperTab](https://github.com/ervandew/supertab) - Tab completion customization
+- [Syntastic](https://github.com/vim-syntastic/syntastic) - Syntax highlighting, error checking
+- [Airline](https://github.com/vim-airline/vim-airline) - Sexy status bar formatting
+- [Commentary](https://github.com/tpope/vim-commentary) - Commands for commenting out sections of code
+- [Fugitive](https://github.com/tpope/vim-commentary) - Git commands from inside Vim
+- [GitGutter](https://github.com/airblade/vim-gitgutter) - Git diff symbols next to the numbers
+
 # Maintenance
 This repo uses submodules for the plugins. Since I have been diagnosed with the dumb, here's how you add, remove and update submodules.
 
@@ -35,3 +48,4 @@ Don't forget to follow all these up with a:
 ```bash
 git commit
 ```
+
