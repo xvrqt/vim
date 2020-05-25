@@ -6,7 +6,7 @@ This is my personal Vim settings and plugins that I use. I created this repo so 
 # Quickstart
 Clone this repo and then symlink it to ~/.vim (or just clone it to ~/.vim).
 ```bash
-git clone --recurse-submodules -j8 https://git.xvrqt.com/amy/vim.git ~/.vim
+git clone --recurse-submodules -j8 https://github.com/xvrqt/vim.git ~/.vim
 ```
 
 # Plugins
