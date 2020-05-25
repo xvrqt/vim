@@ -28,3 +28,6 @@
 [submodule "pack/xvrqt/vim-gitgutter"]
 	path = pack/xvrqt/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "/Users/xvrqt/.vim/pack/xvrqt/start/vim-gitgutter"]
+	path = /Users/xvrqt/.vim/pack/xvrqt/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
