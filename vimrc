@@ -40,7 +40,7 @@ set number          " show line numbers in left hand margin
 set relativenumber  " shows the line number
 
 " toggle for relative numbers
-function! numbertoggle()
+function! Numbertoggle()
   if(&relativenumber == 1)
     set norelativenumber
   else
@@ -48,7 +48,7 @@ function! numbertoggle()
   endif
 endfunc
 " line number toggle shortcut
-nnoremap <leader>l :call numbertoggle()<cr>
+nnoremap <leader>l :call Numbertoggle()<cr>
 
 " vim command tab completion
 set wildmenu
