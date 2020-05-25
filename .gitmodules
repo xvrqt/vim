@@ -22,3 +22,6 @@
 [submodule "pack/xvrqt/start/supertab"]
 	path = pack/xvrqt/start/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "pack/xvrqt/start/vim/pack/xvrqt/start/vim-gitgutter"]
+	path = pack/xvrqt/start/vim/pack/xvrqt/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
