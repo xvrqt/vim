@@ -1,4 +1,4 @@
-" army jie - 05/25/2020
+" Amy Jie - 05/25/2020
 
 " colors
 syntax enable       " syntax highlighting
@@ -145,9 +145,8 @@ let g:syntastic_check_on_wq = 0
 " Nerdtree
 " Open nerdtree on empty file
 autocmd stdinreadpre * let s:std_in=1
-autocmd vimenter * if argc() == 0 && !exists("s:std_in") | nerdtree | endif
+autocmd vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Toggle nerdtree with ctrl+n
-map <c-n> :nerdtreetoggle<cr>
-" Close vim if nerdtree is the only window left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:nerdtree") && b:nerdtree.istabtree()) | q | endif
-
+map <c-n> :NERDTreeToggle<cr>
+" Close NERDTree if it's the last window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
