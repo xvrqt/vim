@@ -33,8 +33,8 @@ git submodule add <repo URL> vim/pack/xvrqt/start/<name>
 ## Remove a Submodule
 ```bash
 git submodule deinit vim/pack/xvrqt/start/<name>
-git rm vim/pack/xvrqt/start/<name>
-rm -Rf .git/modules/vim/pack/xvrqt/start/<name>
+git rm -rf vim/pack/xvrqt/start/<name>
+rm -rf .git/modules/vim/pack/xvrqt/start/<name>
 ```
 
 ## Update All Submodules
