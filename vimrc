@@ -79,10 +79,15 @@ nnoremap <leader><n> :nohlsearch<cr>
 
 " folding
 set foldenable          " enable folding
-set foldmethod=syntax   " fold based on indent level
+set foldmethod=manual   " fold based on indent level
 
-set foldnestmax=10      " 10 nested fold max. 
-set foldlevelstart=5    " most folds opened by default
+" Saves the folds you made on exit, and reloads that view on reopen 
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
 " ctrl + space opens/closes folds
 nnoremap <c-space> za
 
